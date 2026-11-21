@@ -2,7 +2,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { getApp, getApps, initializeApp } from '@firebase/app';
 import * as firebaseAuth from '@firebase/auth';
 import { getFirestore } from '@firebase/firestore';
-
 /**
  * Firebase wiring for BloodBond — native (Android/iOS). Metro picks this
  * file over firebase.ts on native.
@@ -12,9 +11,11 @@ import { getFirestore } from '@firebase/firestore';
  * not — it resolves to the browser build, whose sessions are kept in
  * memory only, so users were signed out every time the app closed).
  *
- * No Firebase project exists yet (2026-11-21) — TODO-BLOODBOND
- * placeholders for the publish step (see lib/firebase.ts). Until the
- * real config lands, the app runs in full local/guest mode.
+ * Firebase project bloodbond-5248a, created 2026-11-21. The real web
+ * config is wired below and firebaseConfigured is true in lib/config.ts.
+ * Email/Password and Google sign-in are enabled, Firestore is created
+ * in production mode, and the repo's owner-only firestore.rules are
+ * published.
  *
  * The config values below are Firebase's public app identifiers — they
  * are designed to ship in client code. Access is controlled by Firebase
@@ -24,16 +25,16 @@ import { getFirestore } from '@firebase/firestore';
  * (Java backend) service.
  */
 const firebaseConfig = {
-  apiKey: 'TODO-BLOODBOND-apiKey',
-  authDomain: 'TODO-BLOODBOND-authDomain',
-  projectId: 'TODO-BLOODBOND-projectId',
-  storageBucket: 'TODO-BLOODBOND-storageBucket',
-  messagingSenderId: 'TODO-BLOODBOND-messagingSenderId',
-  appId: 'TODO-BLOODBOND-appId',
+  apiKey: 'AIzaSyApNqfbYnpHC_H7cluUnN_cETKrbA3fssU',
+  authDomain: 'bloodbond-5248a.firebaseapp.com',
+  projectId: 'bloodbond-5248a',
+  storageBucket: 'bloodbond-5248a.firebasestorage.app',
+  messagingSenderId: '67201598483',
+  appId: '1:67201598483:web:19f8913ccee0cd52dd2be6',
 };
 
 /** OAuth web client ID for the native Google Sign-In flow (not a secret). */
-export const GOOGLE_WEB_CLIENT_ID = 'TODO-BLOODBOND-webClientId';
+export const GOOGLE_WEB_CLIENT_ID = '67201598483-6m2nh3cd2rf4uco7t7rt4m1oovggtonq.apps.googleusercontent.com';
 
 export const firebaseApp = getApps().length ? getApp() : initializeApp(firebaseConfig);
 
