@@ -16,9 +16,8 @@
 export const API_BASE = (process.env.EXPO_PUBLIC_API_URL ?? '').trim().replace(/\/$/, '');
 
 /**
- * Set to true once the Firebase project for BloodBond exists and the
- * values in lib/firebase.ts / lib/firebase.native.ts are the real web
- * config. No project exists yet (2026-11-21) — TODO-BLOODBOND
- * placeholders in both files; wiring is a publish step.
+ * The Firebase project for BloodBond exists (bloodbond-5248a, created
+ * 2026-11-21) and the values in lib/firebase.ts / lib/firebase.native.ts
+ * are the real web config.
  */
-export const firebaseConfigured = false;
+export const firebaseConfigured = true;
